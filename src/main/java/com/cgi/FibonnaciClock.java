@@ -21,7 +21,7 @@ public class FibonnaciClock {
         tempMinute = tempMinute / 5;
     }
 
-    public String calculateColor() {
+    public String calculateRGBColors() {
 
         StringBuilder blueColor = new StringBuilder();
         StringBuilder redColor = new StringBuilder();

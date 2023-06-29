@@ -27,7 +27,7 @@ public class Main {
         panel.add(label);
 
         JLabel label2 = new JLabel("Color");
-        label2.setText(fibonnaciClock.calculateColor());
+        label2.setText(fibonnaciClock.calculateRGBColors());
         panel.add(label2);
 
         frame.add(panel);
