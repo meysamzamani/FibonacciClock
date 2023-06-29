@@ -1,27 +1,18 @@
 package com.cgi;
 
-import javax.swing.*;
-import java.awt.*;
-import java.util.Calendar;
-
 public class FibonnaciClock {
 
-    final static int[] fibonacci = {5,3,2,1,1};
-    static boolean[] hoursFlag = new boolean[5];
-    static boolean[] minutesFlag = new boolean[5];
+    private final static int[] fibonacci = {5,3,2,1,1};
+    private boolean[] hoursFlag = new boolean[5];
+    private boolean[] minutesFlag = new boolean[5];
 
-    static int tempHour;
-    static int tempMinute;
+    private int tempHour;
+    private int tempMinute;
 
-    static int currentHour = 0;
-    static int currentMinute = 0;
+    public FibonnaciClock(int hour, int minute) {
 
-
-    public static void main( String[] args ) {
-
-        Calendar calendar = Calendar.getInstance();
-        tempHour = calendar.get(Calendar.HOUR);
-        tempMinute = calendar.get(Calendar.MINUTE);
+        tempHour = hour;
+        tempMinute = minute;
 
         if (tempHour == 0) {
             tempHour = 12;
@@ -31,15 +22,10 @@ public class FibonnaciClock {
             tempMinute--;
         }
 
-        currentHour = tempHour;
-        currentMinute = tempMinute;
-
         tempMinute = tempMinute / 5;
-
-        calculateColor();
     }
 
-    public static void calculateColor() {
+    public String calculateColor() {
 
         for (int i = 0; i < 5; i++) {
             if (tempHour - fibonacci[i] >= 0) {
@@ -52,54 +38,26 @@ public class FibonnaciClock {
             }
         }
 
-        showTime();
-    }
+        StringBuilder blueColor = new StringBuilder();
+        StringBuilder redColor = new StringBuilder();
+        StringBuilder greenColor = new StringBuilder();
 
-    public static void showTime() {
-
-        int[] redColor = new int[5];
-        int[] greenColor = new int[5];
-        int[] blueColor = new int[5];
-
-        StringBuilder stringBuilderRedColor = new StringBuilder();
-        StringBuilder stringBuilderGreenColor = new StringBuilder();
-        StringBuilder stringBuilderBlueColor = new StringBuilder();
 
         for (int i = 0; i < 5; i++) {
 
             if (hoursFlag[i] && minutesFlag[i]) {
-                blueColor[i] = 1;
-                stringBuilderBlueColor.append(fibonacci[i]);
-                stringBuilderBlueColor.append(" ");
+                blueColor.append(fibonacci[i]);
+                blueColor.append(" ");
             } else if (hoursFlag[i]) {
-                redColor[i] = 1;
-                stringBuilderRedColor.append(fibonacci[i]);
-                stringBuilderRedColor.append(" ");
+                redColor.append(fibonacci[i]);
+                redColor.append(" ");
             } else if (minutesFlag[i]) {
-                greenColor[i] = 1;
-                stringBuilderGreenColor.append(fibonacci[i]);
-                stringBuilderGreenColor.append(" ");
+                greenColor.append(fibonacci[i]);
+                greenColor.append(" ");
             }
         }
 
-        JFrame frame = new JFrame("FibonacciClock");
-        frame.setSize(400, 200);
-        frame.setTitle("Fibonacci Clock");
-
-        JPanel panel = new JPanel();
-        panel.setLayout(new FlowLayout());
-
-        JLabel label = new JLabel("Time");
-        label.setText(currentHour + ":" + currentMinute);
-        panel.add(label);
-
-        JLabel label2 = new JLabel("Color");
-        label2.setText("R " + stringBuilderRedColor.toString() + " | G " + stringBuilderGreenColor + " | B " + stringBuilderBlueColor);
-        panel.add(label2);
-
-        frame.add(panel);
-
-        frame.setVisible(true);
-
+        return "R " + redColor + " | G "+ greenColor + " | " + blueColor;
     }
+
 }
