@@ -10,8 +10,8 @@ public class FibonacciClockTest {
 
     @Test
     public void itShouldReturnRGBColor() {
-        FibonnaciClock fibonnaciClock = new FibonnaciClock(1, 50);
-        assertEquals("R 1  | G 5 3 2  | B ", fibonnaciClock.calculateRGBColors());
+        FibonacciClock fibonacciClock = new FibonacciClock(1, 50);
+        assertEquals("R 1  | G 5 3 2  | B ", fibonacciClock.calculateRGBColors());
     }
 
 }

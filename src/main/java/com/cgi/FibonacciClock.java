@@ -1,6 +1,6 @@
 package com.cgi;
 
-public class FibonnaciClock {
+public class FibonacciClock {
 
     private final static int[] fibonacci = {5,3,2,1,1};
     private boolean[] hoursFlag = new boolean[5];
@@ -9,7 +9,7 @@ public class FibonnaciClock {
     private int tempHour;
     private int tempMinute;
 
-    public FibonnaciClock(int hour, int minute) {
+    public FibonacciClock(int hour, int minute) {
 
         tempHour = hour;
         tempMinute = minute;

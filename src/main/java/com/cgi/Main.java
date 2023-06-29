@@ -13,7 +13,7 @@ public class Main {
 
         currentMinute = currentMinute - Math.floorMod(currentMinute, 5);
 
-        FibonnaciClock fibonnaciClock = new FibonnaciClock(currentHour, currentMinute);
+        FibonacciClock fibonacciClock = new FibonacciClock(currentHour, currentMinute);
 
         JFrame frame = new JFrame("FibonacciClock");
         frame.setSize(400, 200);
@@ -27,7 +27,7 @@ public class Main {
         panel.add(label);
 
         JLabel label2 = new JLabel("Color");
-        label2.setText(fibonnaciClock.calculateRGBColors());
+        label2.setText(fibonacciClock.calculateRGBColors());
         panel.add(label2);
 
         frame.add(panel);
