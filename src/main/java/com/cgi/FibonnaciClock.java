@@ -7,8 +7,8 @@ import java.util.Calendar;
 public class FibonnaciClock {
 
     final static int[] fibonacci = {5,3,2,1,1};
-    static int[] hoursFlag = new int[5];
-    static int[] minutesFlag = new int[5];
+    static boolean[] hoursFlag = new boolean[5];
+    static boolean[] minutesFlag = new boolean[5];
 
     static int tempHour;
     static int tempMinute;
@@ -44,11 +44,11 @@ public class FibonnaciClock {
         for (int i = 0; i < 5; i++) {
             if (tempHour - fibonacci[i] >= 0) {
                 tempHour = tempHour - fibonacci[i];
-                hoursFlag[i] = 1;
+                hoursFlag[i] = true;
             }
             if (tempMinute - fibonacci[i] >= 0) {
                 tempMinute = tempMinute - fibonacci[i];
-                minutesFlag[i] = 1;
+                minutesFlag[i] = true;
             }
         }
 
@@ -67,15 +67,15 @@ public class FibonnaciClock {
 
         for (int i = 0; i < 5; i++) {
 
-            if (hoursFlag[i] == 1 && minutesFlag[i] == 1) {
+            if (hoursFlag[i] && minutesFlag[i]) {
                 blueColor[i] = 1;
                 stringBuilderBlueColor.append(fibonacci[i]);
                 stringBuilderBlueColor.append(" ");
-            } else if (hoursFlag[i] == 1) {
+            } else if (hoursFlag[i]) {
                 redColor[i] = 1;
                 stringBuilderRedColor.append(fibonacci[i]);
                 stringBuilderRedColor.append(" ");
-            } else if (minutesFlag[i] == 1) {
+            } else if (minutesFlag[i]) {
                 greenColor[i] = 1;
                 stringBuilderGreenColor.append(fibonacci[i]);
                 stringBuilderGreenColor.append(" ");
