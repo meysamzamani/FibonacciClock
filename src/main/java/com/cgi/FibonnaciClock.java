@@ -18,10 +18,6 @@ public class FibonnaciClock {
             tempHour = 12;
         }
 
-        while (tempMinute % 5 != 0) {
-            tempMinute--;
-        }
-
         tempMinute = tempMinute / 5;
     }
 
