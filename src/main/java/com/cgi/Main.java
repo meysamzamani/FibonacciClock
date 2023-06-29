@@ -11,6 +11,8 @@ public class Main {
         int currentHour = calendar.get(Calendar.HOUR);
         int currentMinute = calendar.get(Calendar.MINUTE);
 
+        currentMinute = currentMinute - Math.floorMod(currentMinute, 5);
+
         FibonnaciClock fibonnaciClock = new FibonnaciClock(currentHour, currentMinute);
 
         JFrame frame = new JFrame("FibonacciClock");

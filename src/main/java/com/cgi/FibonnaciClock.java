@@ -27,6 +27,10 @@ public class FibonnaciClock {
 
     public String calculateColor() {
 
+        StringBuilder blueColor = new StringBuilder();
+        StringBuilder redColor = new StringBuilder();
+        StringBuilder greenColor = new StringBuilder();
+
         for (int i = 0; i < 5; i++) {
             if (tempHour - fibonacci[i] >= 0) {
                 tempHour = tempHour - fibonacci[i];
@@ -36,14 +40,6 @@ public class FibonnaciClock {
                 tempMinute = tempMinute - fibonacci[i];
                 minutesFlag[i] = true;
             }
-        }
-
-        StringBuilder blueColor = new StringBuilder();
-        StringBuilder redColor = new StringBuilder();
-        StringBuilder greenColor = new StringBuilder();
-
-
-        for (int i = 0; i < 5; i++) {
 
             if (hoursFlag[i] && minutesFlag[i]) {
                 blueColor.append(fibonacci[i]);
@@ -57,7 +53,7 @@ public class FibonnaciClock {
             }
         }
 
-        return "R " + redColor + " | G "+ greenColor + " | " + blueColor;
+        return "R " + redColor + " | G "+ greenColor + " | B " + blueColor;
     }
 
 }
