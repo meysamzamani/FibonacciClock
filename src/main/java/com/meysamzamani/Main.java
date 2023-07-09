@@ -1,4 +1,4 @@
-package com.cgi;
+package com.meysamzamani;
 
 import javax.swing.*;
 import java.awt.*;
